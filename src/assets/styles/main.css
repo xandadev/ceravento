@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Borel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+}
+html{
+    scroll-behavior: smooth;
+}
+p, a, h1, h2, h3, span{
+    font-optical-sizing: auto;
+    font-style: normal;
+
+}
+:root{
+    --padding-altura-secciones-encabezados: clamp(50px, 10vw, 100px);
+    --padding-secciones-generales: clamp(20px, 5vw, 50px);
+    --padding-secciones-encabezados: clamp(50px, 10vw, 100px);
+    --padding-opciones-encabezados: clamp(8px, 1.3vw, 13px);
+
+    --color-blanco: #ffffff;
+    --color-negro: #131313;
+    --color-gris-claro: #81818180;
+
+    --fuente-bodoni-moda: "Bodoni Moda", serif;
+    --fuente-borel-cursiva: "Borel", cursive;
+    --fuente-noto-sans: "Noto Sans", sans-serif;
+
+    --size-h1-encabezados: clamp(40px, 7vw, 70px);
+    --size-parrafo-encabezados: clamp(15px, 1.8vw, 18px);
+    --size-logo: clamp(20px, 3vw, 30px);
+    --size-h2-generales: clamp(20px, 3vw, 30px);
+}
+.body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-content: start;
+}
+.header{
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    z-index: 5;
+    left: 0px;
+    top: 0px;
+    width: calc(100% - clamp(30px, 5vw, 50px));
+    height: auto;
+    padding: clamp(10px, 2vw, 20px) clamp(15px, 2.5vw, 25px);
+    z-index: 1;
+}
+.header-activo{
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    left: 0px;
+    top: 0px;
+    width: calc(100% - clamp(30px, 5vw, 50px));
+    height: auto;
+    padding: clamp(10px, 2vw, 20px) clamp(15px, 2.5vw, 25px);
+    z-index: 2;
+    background: var(--color-negro);
+}
+.contenedor-logo-header img{
+    width: 100px;
+}
+.contenedor-opciones-header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    gap: clamp(10px, 1.5vw, 15px);
+}
+.opciones-header{
+    color: var(--color-blanco);
+    font-weight: 400;
+    font-family: var(--fuente-noto-sans);
+    cursor: pointer;
+    transition: 0.25s;
+    padding-left: 5px;
+    padding-right: 7.5px;
+    padding-bottom: 2.5px;
+    border-bottom: 2px solid transparent;
+}
+.opciones-header:hover{
+    border-bottom: 2px solid #ffffff;
+}
+.main{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-content: start;
+}

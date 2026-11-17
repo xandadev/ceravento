@@ -1,0 +1,312 @@
+/* SECCIÓN ENCABEZADO | INICIO */
+.seccion-encabezado{
+    width: calc(100% - var(--padding-secciones-generales));
+    height: calc(100vh - var(--padding-altura-secciones-encabezados) * 2);
+    padding: var(--padding-altura-secciones-encabezados) var(--padding-secciones-encabezados);
+    display: flex;
+    flex-direction: column;     /* NUEVO: apilar verticalmente */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;        /* NUEVO: centrar horizontalmente (eje cruzado en column) */
+    align-content: center;
+    background-image: url('/src/assets/images/encabezados/index_1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+
+
+/* Contenedores | Inicio */
+.contenedor-conrtinilla-encabezado{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    animation: 3.5s linear aparicioncortinillaencabezado;
+    opacity: 0;
+    z-index: 2;
+}
+@keyframes aparicioncortinillaencabezado {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+.contenedor-indicador-carrusel-encabezado{
+    width: 100%;
+    position: absolute;
+    left: 0%;
+    bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 5px;
+}
+.contenedor-indicador-carrusel-encabezado span{
+    background-color: var(--color-gris-claro);
+    width: 35px;
+    height: 2px;
+    cursor: pointer;
+    display: flex;
+    animation: 5s linear indicadoresencabezado;
+}
+.indicador-activo{
+    background-color: var(--color-blanco) !important;
+}
+@keyframes indicadoresencabezado{
+    0%{
+        opacity: 0;
+    }
+    75%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.contenedor-opciones-encabezado{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    opacity: 0;
+    animation: aparicion_opciones_encabezado 1s ease-out 7s forwards;
+}
+@keyframes aparicion_opciones_encabezado{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+/* Contenedores | Final */
+
+
+
+/* Textos | Inicio */
+.h1-encabezado{
+    color: var(--color-blanco);
+    font-family: var(--fuente-borel-cursiva);
+    font-weight: 300;
+    font-size: var(--size-h1-encabezados);
+    width: fit-content;        /* NUEVO: el elemento se ajusta al ancho del texto */
+    text-align: center;        /* (innecesario con fit-content, pero lo dejamos como respaldo) */
+    line-height: var(--size-h1-encabezados);
+    transform: translateY(calc(var(--size-parrafo-encabezados) / 2));
+    animation: 3.5s linear h1encabezado, 1.5s ease-out 5.5s forwards moverizquierda_h1;
+}
+@keyframes h1encabezado{
+    0%{
+        transform: translateY(var(--size-parrafo-encabezados));
+    }
+    75%{
+        transform: translateY(calc(var(--size-parrafo-encabezados) / 2));
+    }
+    100%{
+        transform: translateY(calc(var(--size-parrafo-encabezados) / 2));
+    }
+}
+@keyframes moverizquierda_h1{
+    0%{
+        transform: translateY(calc(var(--size-parrafo-encabezados) / 2)) translateX(0);
+    }
+    100%{
+        transform: translateY(calc(var(--size-parrafo-encabezados) / 2)) translateX(calc(-50vw + var(--padding-secciones-encabezados) + 50%));
+    }
+}
+.parrafo-encabezado{
+    font-weight: 400;
+    color: var(--color-blanco);
+    font-family: var(--fuente-bodoni-moda);
+    width: fit-content;        /* NUEVO: el elemento se ajusta al ancho del texto */
+    text-align: center;
+    font-size: var(--size-parrafo-encabezados);
+    line-height: var(--size-parrafo-encabezados);
+    transform: translateY(-15px);
+    /*
+      1ª animación: parrafoencabezado (5s, lineal)
+      2ª animación: moverizquierda_parrafo (delay 5.5s = 5s + 0.5s de pausa,
+                    1.5s ease-out, forwards para que se quede quieto)
+    */
+    animation: 5s linear parrafoencabezado, 1.5s ease-out 5.5s forwards moverizquierda_parrafo;
+}
+@keyframes parrafoencabezado{
+    0%{
+        opacity: 0;
+        display: none;
+    }
+    75%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+/* Mismo principio que moverizquierda_h1, conservando el translateY(-15px) del párrafo */
+@keyframes moverizquierda_parrafo{
+    0%{
+        opacity: 1;
+        transform: translateY(-15px) translateX(0);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(-15px) translateX(calc(-50vw + var(--padding-secciones-encabezados) + 50%));
+    }
+}
+/* Textos | Final */
+
+
+
+/* Imágenes | Inicio */
+.imagen-pisos-encabezado{
+    position: absolute;
+    width: clamp(200px, 40vw, 400px);
+    right: 75px;
+    top: calc(50% - clamp(100px, 20vw, 200px));
+    animation: parrafoencabezado 8s linear, flotar 3s ease-in-out infinite 5.5s;
+}
+
+/* Keyframes para la animación de flotar (arriba y abajo) */
+@keyframes flotar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Ajusta los píxeles según qué tan alto quieras que flote */
+    }
+}
+/* Imágenes | Final */
+
+
+
+/* Opciones | Inicio */
+.tarjeta-opciones-encabezado{
+    border-radius: 12px;
+    background-color: var(--color-gris-claro);
+    display: flex;
+    flex-wrap: wrap;
+    padding: clamp(5px, 0.8vw, 8px) var(--padding-opciones-encabezados);
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.tarjeta-opciones-encabezado:hover{
+    background-color: var(--color-negro);
+}
+.tarjeta-opciones-encabezado img{
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    aspect-ratio: 1/1;
+    z-index: 1;
+}
+.tarjeta-opciones-encabezado p{
+    color: var(--color-blanco);
+    font-weight: 400;
+    font-family: var(--fuente-noto-sans);
+    z-index: 2;
+}
+/* Opciones | Final */
+
+
+
+/* Responsivo | Inicio */
+/* Responsivo | Final */
+/* SECCIÓN ENCABEZADO | FINAL */
+
+
+
+
+
+
+
+
+
+
+
+/* Contenedores | Inicio */
+/* Contenedores | Final */
+
+/* Textos | Inicio */
+/* Textos | Final */
+
+/* Imágenes | Inicio */
+/* Imágenes | Final */
+
+/* Responsivo | Inicio */
+/* Responsivo | Final */
+/* SECCIÓN ENCABEZADO | FINAL */
+
+
+
+
+
+/* SECCIÓN COLECCIONES | INICIO */
+.seccion-colecciones{
+    width: calc(100% - var(--padding-secciones-generales));
+    height: auto;
+    padding: var(--padding-secciones-generales);
+    background-color: var(--color-blanco);
+}
+
+
+
+/* Contenedores | Inicio */
+.contenedor-subtitulo-colecciones{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: start;
+}
+/* Contenedores | Final */
+
+
+
+/* Textos | Inicio */
+.h2-subtitulo-colecciones{
+    font-family: var(--fuente-noto-sans);
+    text-align: start;
+    font-size: var(--size-h2-generales);
+    background-image: url('/src/assets/images/header.png');
+    background-size: cover;
+    background-position: center;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+/* Textos | Final */
+
+
+
+/* Imágenes | Inicio */
+/* Imágenes | Final */
+
+/* Responsivo | Inicio */
+/* Responsivo | Final */
+/* SECCIÓN COLECCIONES | FINAL */
+
+
+
+
+/* Contenedores | Inicio */
+/* Contenedores | Final */
+
+/* Textos | Inicio */
+/* Textos | Final */
+
+/* Imágenes | Inicio */
+/* Imágenes | Final */
+
+/* Responsivo | Inicio */
+/* Responsivo | Final */

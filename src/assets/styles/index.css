@@ -310,3 +310,88 @@
 
 /* Responsivo | Inicio */
 /* Responsivo | Final */
+/* Ondas inferiores | Inicio */
+.h1-encabezado,
+.parrafo-encabezado,
+.contenedor-opciones-encabezado,
+.imagen-pisos-encabezado,
+.contenedor-indicador-carrusel-encabezado{
+    z-index: 2;
+}
+.contenedor-ondas-encabezado{
+    position: absolute;
+    left: 0px;
+    bottom: -1px;
+    width: 100%;
+    height: clamp(70px, 12vw, 150px);
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    animation: aparicion_ondas_encabezado 1s ease 3.5s forwards;
+}
+@keyframes aparicion_ondas_encabezado{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+.ondas-encabezado{
+    width: 200%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    animation: movimiento_ondas_encabezado 12s linear infinite;
+}
+.onda{
+    transform-origin: center;
+}
+.onda-1{
+    fill: rgba(255,255,255,0.18);
+    animation: movimiento_onda_1 7s ease-in-out infinite alternate;
+}
+.onda-2{
+    fill: rgba(255,255,255,0.30);
+    animation: movimiento_onda_2 9s ease-in-out infinite alternate;
+}
+.onda-3{
+    fill: rgba(255,255,255,0.55);
+    animation: movimiento_onda_3 11s ease-in-out infinite alternate;
+}
+@keyframes movimiento_ondas_encabezado{
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-50%);
+    }
+}
+@keyframes movimiento_onda_1{
+    from{
+        d: path("M0,100 C240,180 480,20 720,100 C960,180 1200,20 1440,100 L1440,200 L0,200 Z");
+    }
+    to{
+        d: path("M0,120 C240,20 480,180 720,120 C960,20 1200,180 1440,120 L1440,200 L0,200 Z");
+    }
+}
+@keyframes movimiento_onda_2{
+    from{
+        d: path("M0,120 C240,40 480,200 720,120 C960,40 1200,200 1440,120 L1440,200 L0,200 Z");
+    }
+    to{
+        d: path("M0,90 C240,190 480,30 720,90 C960,190 1200,30 1440,90 L1440,200 L0,200 Z");
+    }
+}
+@keyframes movimiento_onda_3{
+    from{
+        d: path("M0,140 C240,200 480,80 720,140 C960,200 1200,80 1440,140 L1440,200 L0,200 Z");
+    }
+    to{
+        d: path("M0,110 C240,50 480,170 720,110 C960,50 1200,170 1440,110 L1440,200 L0,200 Z");
+    }
+}
+/* Ondas inferiores | Final */
